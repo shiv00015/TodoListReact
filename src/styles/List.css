@@ -1,0 +1,50 @@
+.row {
+  height: 2.5rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 1rem auto;
+  padding-left: 0.5rem;
+}
+
+.buttons button {
+  width: 3.5rem;
+  height: 2.5rem;
+  border: none;
+}
+
+.edit {
+  background-color: greenyellow;
+}
+
+.edit:hover {
+  opacity: 0.83;
+}
+.delete {
+  background-color: red;
+  color: white;
+}
+.delete:hover {
+  opacity: 0.87;
+}
+input {
+  padding: 0.5rem;
+  border: none;
+  width: 10rem;
+  height: 1.9rem;
+}
+
+.saveTask {
+  background-color: rgb(129, 107, 107);
+}
+
+.saveTask:hover {
+  opacity: 0.8;
+}
+
+ul {
+  list-style: none;
+}
