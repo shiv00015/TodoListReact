@@ -1,10 +1,11 @@
 import React from "react";
 
-function ListItem({ newName, EditName, DeleteItem }) {
+function ListItem({ newName, EditName, DeleteItem, statusDone }) {
+  
   return (
     <>
       <li className="list">{newName}</li>
-      <div className="buttons">
+      <div className="buttons" style={statusDone ? { display: "none" } : {}}>
         <button
           onClick={() => {
             EditName();
