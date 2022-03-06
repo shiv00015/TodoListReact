@@ -4,6 +4,7 @@ import ListItem from "./ListItem";
 import "../styles/List.css";
 function List({ data, updateArr, DeleteToItem }) {
   const [view, setView] = useState(false);
+  const [done, setDone] = useState(false);
 
   function updateNewValue(newValue) {
     !newValue ? alert("Enter Todo pleace") : updateArr(newValue, data.key);
@@ -18,21 +19,43 @@ function List({ data, updateArr, DeleteToItem }) {
     DeleteToItem(data.key);
   }
   return (
-    <div className="row">
+    <>
       {!view ? (
-        <>
-          <ListItem
-            newName={data.text}
-            EditName={EditName}
-            DeleteItem={DeleteItem}
+        <div className="listRow">
+          <div
+            className="row"
+            style={
+              done
+                ? {
+                    backgroundColor: "red",
+                    textDecorationLine: "line-through",
+                    color: "white",
+                    width: "10rem"
+                  }
+                : {}
+            }
+          >
+            <ListItem
+              newName={data.text}
+              EditName={EditName}
+              DeleteItem={DeleteItem}
+              statusDone={done}
+            />
+          </div>
+          <input
+            className="check"
+            type="checkbox"
+            onChange={(e) => {
+              setDone(e.target.checked);
+            }}
           />
-        </>
+        </div>
       ) : (
-        <>
+        <div className="row">
           <Edit updateNewValue={updateNewValue} />
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
